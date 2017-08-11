@@ -12,7 +12,7 @@ Top Row
 Bottom Row  
 e,d,dp,c,g,4    
 
-```  
+
    AAA  
   F   B  
   F   B  
@@ -25,7 +25,7 @@ e,d,dp,c,g,4
 
 ```
           SN74HC595
-           ____  ___
+         -----  ----
    Out1  |    \/   | V+  
    Out2  |         | Out0  
    Out3  |         | Data  
