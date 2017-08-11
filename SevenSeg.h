@@ -61,7 +61,7 @@ class SevenSeg
 		void setDisplayBitmapAndShift(const uint8_t bitmap);
 
 		// returns the display's current display number
-		// this value may not be valid/current depending on how the display was last set
+		// this value may not be valid/current depending on how the display was last set and what mode the display is in
 		int16_t getDisplayNum();
 
 		// turns the display to error mode
@@ -78,6 +78,7 @@ class SevenSeg
 		void off();
 		bool isOn();  // public version of getDisplayIsOn
 
+		char* getDisplayText();
 	private:
 		// display the char at specified digit index.  Decimal point on if decimalOn is true
 		void displayDigit(const char theDigit, const uint8_t pos, const bool decimalOn);
@@ -124,7 +125,7 @@ class SevenSeg
 		uint8_t getLatchPin();
 		uint8_t getClockPin();
 
-		char* getDisplayText();
+		
 		void clearDisplayText();
 		uint8_t getDigitPin(const uint8_t index);
 		bool getDisplayIsOn();

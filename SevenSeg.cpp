@@ -6,8 +6,10 @@ SevenSeg::SevenSeg(const uint8_t dataPin, const uint8_t latchPin, const uint8_t 
 {
 	// digit pins and displayText array size is determined by the number of display digits
 	_digitPins = malloc(sizeof(uint8_t)*getDisplayNumDigits());
-	_displayText = (char *)malloc(sizeof(char)*(getDisplayNumDigits()+1));  // one  extra for the end of string marker
-
+	//_displayText = (char*)malloc(sizeof(char)*(getDisplayNumDigits()+1));  // one  extra for the end of string marker
+	_displayText = (char*)malloc(5);
+	clearDisplayText();
+	
 	for (uint8_t i = 0; i < getDisplayNumDigits(); i++)
 	{
 		_digitPins[i] = *(digitPins+i);
@@ -36,7 +38,8 @@ void SevenSeg::setDisplayNum(const int16_t theNumber, const uint8_t decimalPosit
 
 void SevenSeg::clearDisplayText()
 {
-	memset(_displayText,'\0',sizeof(_displayText));
+	memset(_displayText,EMPTY_MARKER,getDisplayNumDigits());
+	_displayText[getDisplayNumDigits()] = '\0';
 }
 
 void SevenSeg::setDisplayDigitAndShift(const uint8_t theDigit){ setDisplayDigitAndShift(theDigit,false);}
@@ -48,6 +51,7 @@ void SevenSeg::setDisplayDigitAndShift(const uint8_t theDigit, const bool decima
 		_displayText[i] = _displayText[i+1];  // move every digit over 1 to the left
 	}
 	_displayText[getDisplayNumDigits()-1] = theDigit + '0';  // set right most value
+	
 	if (decimalOn)
 	{
 		setDecimalPosition(getDisplayNumDigits());  // override decimal position and set to right most
@@ -109,7 +113,6 @@ void SevenSeg::convertDisplayNum(const int16_t theNumber)
   	else
   	{
     	setErrorDisplay();
-    	Serial.println("Out of bound");
   	}
 }
 
