@@ -2,11 +2,7 @@
   
 A library to control a 7 segment (8 including the decimal place) display using a shift register.  
     
-See examples folder for usage details.   
-
-## Wiring Details
-
-The following example for a 7 segment display with 12 input pins. With controlling details are:   
+## Wiring Details Example
 
 ### 7 Segment Display Layout  
 
