@@ -6,11 +6,13 @@ A library to control a 7 segment (8 including the decimal place) display using a
 
 ### 7 Segment Display Layout  
 
+```
 Top Row  
 1,a,f,2,3,b  
 Bottom Row  
 e,d,dp,c,g,4    
-  
+
+```  
    AAA  
   F   B  
   F   B  
@@ -18,9 +20,10 @@ e,d,dp,c,g,4
   E   C  
   E   C   
    DDD  DP  
-
+```  
 ### Shift Register Layout 
 
+```
           SN74HC595
            ____  ___
    Out1  |    \/   | V+  
@@ -31,7 +34,8 @@ e,d,dp,c,g,4
    Out6  |         | CLOCK  
    Out7  |         | MR (V+)  
    GND   |_________| LED7' (not needed)  
-
+```
+   
 ### Wiring Explanation  
   
 Esentialy the 4 digits pins are controlled directly by the arduino while the segment pins are controlled via the Shift register  
